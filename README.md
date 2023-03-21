@@ -66,3 +66,21 @@ https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-
 
 On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
 <https://github.com/Carael/CrossBusExplorer>
+
+<https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-22-04-lts-jammy-jellyfish-linux>
+
+```bash
+    gnome-tweaks
+```
+
+## Installing Wireshark
+
+```bash
+    sudo add-apt-repository ppa:wireshark-dev/stable
+    sudo apt update
+
+    sudo apt install wireshark
+
+    # display version
+    apt show wireshark
+```
