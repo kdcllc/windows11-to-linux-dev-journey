@@ -40,7 +40,8 @@ https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-
 
 ## Install docker
 
-<https://docs.docker.com/engine/install/ubuntu/>
+<https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
+<https://docs.docker.com/engine/install/linux-postinstall/>
 
 ## Azure Cli
 
@@ -59,3 +60,9 @@ https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-
 
 ## Installing Lens
 <https://docs.k8slens.dev/getting-started/install-lens/#debian>
+
+
+## ServiceBus Explorer
+
+On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
+<https://github.com/Carael/CrossBusExplorer>
