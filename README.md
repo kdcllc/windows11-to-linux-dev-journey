@@ -38,6 +38,8 @@ https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-
     sudo add-apt-repository ppa:kdenlive/kdenlive-stable
 ```
 
+<https://ubuntuhandbook.org/index.php/2020/04/install-kdenlive-20-04-ppa-in-ubuntu-20-04/>
+
 ## Install docker
 
 <https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
