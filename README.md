@@ -119,7 +119,7 @@ Contributions to this repository are welcome! If you have suggestions, improveme
 License
 -------
 
-This repository is licensed under the [MIT License](LICENSE).
+This repository is licensed under the [GPL-3.0 license](LICENSE).
 
 * * *
 
