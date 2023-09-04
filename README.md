@@ -8,9 +8,9 @@ Please send [email](mailto:kingdavidconsulting@gmail.com) if you consider to **h
 
 [![buymeacoffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/vyve0og)
 
-## Give a Star! :star2:
+## Give a Star! :star2
 
-It supports the following authentication libraries:
+It supports the following authentication libraries
 Table of Contents
 -----------------
 
@@ -191,7 +191,7 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
     nvm --version
 ```
 
-#### Uninstall `nvm`:
+#### Uninstall `nvm`
 
 ```bash
     # To uninstall nvm, you can simply remove its directory and associated files
@@ -237,18 +237,61 @@ Linux provides a variety of database options:
 * MongoDB: A NoSQL database for flexible data storage.
 * MySQL: Another popular open-source relational database.
 
-
-Version Control
+File directories
 ---------------
 
-Git is an essential part of a developer's toolkit. Linux seamlessly integrates with Git, making version control efficient and effective.
+### Windows to Ubuntu Linux
 
-* Git: Install and configure Git for version control in your projects.
+| Windows 11 Directory     | Explanation                                           | Ubuntu Linux Directory   | Explanation                                           |
+|--------------------------|-------------------------------------------------------|--------------------------|-------------------------------------------------------|
+| C:\                      | The root directory in Windows 11.                    | /                        | The root directory, the starting point of the file system hierarchy. |
+| C:\Program Files         | Location for installed 64-bit applications.          | /usr                     | User-installed applications and libraries.           |
+| C:\Program Files (x86)   | Location for installed 32-bit applications on 64-bit Windows. | N/A             | No direct equivalent.                                 |
+| C:\Windows               | Contains core Windows system files and settings.     | N/A                     | No direct equivalent.                                 |
+| C:\Users\<Username>      | User profiles and user-specific data.                | /home/<Username>         | User's home directory, where user-specific data is stored. |
+| C:\Users\Public          | Shared files and folders accessible to all users.   | /home/Public             | Shared files and folders accessible to all users.   |
+| C:\Users\<Username>\Desktop | The user's desktop folder.                        | /home/<Username>/Desktop | The user's desktop directory.                        |
+| C:\Users\<Username>\Documents | Default location for user documents.           | /home/<Username>/Documents | Default location for user documents.           |
+| C:\Users\<Username>\Downloads | Default location for downloaded files.         | /home/<Username>/Downloads | Default location for downloaded files.         |
+| C:\Temp                  | Temporary directory for storing temporary files.     | /tmp                     | Temporary directory for storing temporary files.     |
+| C:\ProgramData           | Application data shared among all users.             | /var                     | Variable data files, logs, and temporary files.      |
+| C:\Windows\System32      | System directory for 64-bit system files and libraries. | /lib                     | Library files used by programs and the kernel.       |
+| C:\Windows\SysWOW64      | System directory for 32-bit system files on 64-bit Windows. | N/A           | No direct equivalent.                                 |
+| C:\Windows\SystemApps    | Contains system applications and components.         | /sbin                    | System binaries and administrator executables.       |
+| C:\Windows\SystemVolumeInformation | System volume information and recovery files. | /bin          | Essential system binaries, required for system boot and repair. |
+| C:\Recovery              | Contains Windows recovery files.                    | /etc                     | Configuration files and system-wide settings.        |
+| C:\$Recycle.Bin          | Recycle Bin directory for deleted files.             | /mnt                     | Mount point for manually mounted file systems.       |
+| C:\System Volume Information | System-related information and restore points.  | /media                   | Mount point for removable media (e.g., USB drives).  |
+
+### Ubuntu Linux to Windows
+
+| Directory (Ubuntu Linux) | Explanation                                           | Directory (Windows 11) | Explanation                                           |
+|--------------------------|-------------------------------------------------------|-------------------------|-------------------------------------------------------|
+| /                        | The root directory, the starting point of the file system hierarchy. | C:\                     | The root directory in Windows.                        |
+| /bin                     | Essential system binaries, required for system boot and repair. | N/A                     | No direct equivalent.                                 |
+| /boot                    | Contains boot loader files and the Linux kernel.     | N/A                     | No direct equivalent.                                 |
+| /dev                     | Device files representing hardware and devices.       | N/A                     | No direct equivalent.                                 |
+| /etc                     | Configuration files and system-wide settings.        | C:\Windows              | Contains Windows system files and settings.           |
+| /home/<Username>         | User's home directory, where user-specific data is stored. | C:\Users\<Username>     | User's home directory in Windows.                     |
+| /lib                     | Library files used by programs and the kernel.       | C:\Windows\System32     | System binaries and libraries in Windows.            |
+| /media                   | Mount point for removable media (e.g., USB drives).  | N/A                     | No direct equivalent.                                 |
+| /mnt                     | Mount point for manually mounted file systems.       | N/A                     | No direct equivalent.                                 |
+| /opt                     | Directory for additional software packages and optional software. | N/A            | No direct equivalent.                                 |
+| /proc                    | A virtual directory providing system and process information. | N/A           | No direct equivalent.                                 |
+| /root                    | The home directory for the system administrator (root). | C:\Users\Administrator | The home directory for the Administrator user in Windows. |
+| /sbin                    | System binaries and administrator executables.       | N/A                     | No direct equivalent.                                 |
+| /srv                     | Data for services provided by the system.             | N/A                     | No direct equivalent.                                 |
+| /sys                     | A virtual directory providing kernel parameters.      | N/A                     | No direct equivalent.                                 |
+| /tmp                     | Temporary directory for storing temporary files.     | C:\Temp                 | Temporary directory in Windows.                       |
+| /usr                     | User-installed applications and libraries.           | C:\Program Files        | Contains user-installed applications in Windows.      |
+| /var                     | Variable data files, logs, and temporary files.      | C:\ProgramData          | Contains variable data files and program settings in Windows. |
+
+Please note that there are significant differences between the directory structures of Ubuntu Linux and Windows 11, so not all directories have direct equivalents. Some directories in Ubuntu Linux serve specific Linux system functions that may not have a direct Windows equivalent.
 
 Contributing
 ------------
 
-Contributions to this repository are welcome! If you have suggestions, improvements, or additional content to share, please refer to the [Contributing Guidelines](contributing.md).
+Contributions to this repository are welcome! If you have suggestions, improvements, or additional content to share, please refer to the [Contributing Guidelines](CONTRIBUTING.md).
 
 License
 -------
