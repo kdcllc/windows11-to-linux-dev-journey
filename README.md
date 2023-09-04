@@ -132,7 +132,7 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
 
 Follow these steps to install Git, configure SSH access with an Ed25519 key, and add the key to your GitHub or Dev.Azure.com account for secure and convenient repository access.
 
-### Install Vscode
+### Install VScode
 
 Once you've made the decision to transition away from the Windows ecosystem, selecting the right code editor becomes crucial. Having used VSCode for years, it was my natural choice when I moved to Ubuntu Linux.
 
@@ -171,7 +171,7 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 
 ### Install NodeJs
 
-#### [Install `nvm`:}(https://github.com/nvm-sh/nvm)
+#### [Install `nvm`:](https://github.com/nvm-sh/nvm)
 
 ```bash
     # Download and install nvm from the official GitHub repository
