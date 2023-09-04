@@ -98,30 +98,63 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
 * Git: Install and configure Git for version control in your projects.
 
 ```bash
-# Install Git
-sudo apt install git-all
-
-# Configure SSH for GitHub or Dev.Azure.com repositories
-# Generate an SSH key (replace "email@domain.com" with your email)
-ssh-keygen -t ed25519 -C "email@domain.com"
-
-# Start the SSH agent
-eval "$(ssh-agent -s)"
-
-# Add your SSH key to the agent (replace "~/.ssh/id_ed25519.pub" with your actual key path)
-ssh-add ~/.ssh/id_ed25519
-
-# Now, add the SSH key to your GitHub or Dev.Azure.com account
-# You can do this by copying the SSH key from "~/.ssh/id_ed25519.pub" and adding it to your account settings.
-# For GitHub: https://github.com/settings/keys
-# For Dev.Azure.com: https://dev.azure.com/your-organization/_usersSettings/keys
+    # Install Git
+    sudo apt install git-all
+    
+    # Configure SSH for GitHub or Dev.Azure.com repositories
+    # Generate an SSH key (replace "email@domain.com" with your email)
+    ssh-keygen -t ed25519 -C "email@domain.com"
+    
+    # Start the SSH agent
+    eval "$(ssh-agent -s)"
+    
+    # Add your SSH key to the agent (replace "~/.ssh/id_ed25519.pub" with your actual key path)
+    ssh-add ~/.ssh/id_ed25519
+    
+    # Now, add the SSH key to your GitHub or Dev.Azure.com account
+    # You can do this by copying the SSH key from "~/.ssh/id_ed25519.pub" and adding it to your account settings.
+    # For GitHub: https://github.com/settings/keys
+    # For Dev.Azure.com: https://dev.azure.com/your-organization/_usersSettings/keys
 ```
 
 Follow these steps to install Git, configure SSH access with an Ed25519 key, and add the key to your GitHub or Dev.Azure.com account for secure and convenient repository access.
 
-### Install `vscode` insiders version
+### Install Vscode
 
-Once windows eco system is abandon, there are a couple of choices are left for Code Editor. I have been using VSCode for years and of course that was my choice for Ubuntu Linux. I have been using `vscode` insider version and rarely ran into an issues after a daily update, I prefer to stay on the cutting edge.
+Once you've made the decision to transition away from the Windows ecosystem, selecting the right code editor becomes crucial. Having used VSCode for years, it was my natural choice when I moved to Ubuntu Linux.
+
+#### Installing VSCode
+
+1. To install VSCode, you can use the following command:
+
+   ```bash
+   sudo snap install code --classic
+   ```
+
+   This command installs the Visual Studio Code (VSCode) using Snap, a universal package manager in Ubuntu.
+
+2. After the installation is complete, you can launch VSCode by searching for it in the application menu or using the following command:
+
+   ```bash
+   code
+
+#### Installing VSCode Insiders Edition- staying on the Cutting Edge
+
+If you prefer to stay at the forefront of software development and want to use the Insider version of VSCode, you can do so on Ubuntu Linux. I've been using the VSCode Insider version and rarely encountered issues after daily updates. To install the Insider version, you can follow these steps:
+
+1. First, install the Insider version of VSCode using Snap:
+
+   ```bash
+   sudo snap install code-insiders --classic
+   ```
+
+2. Once the installation is complete, launch the Insider version by searching for it in the application menu or using the command:
+
+   ```bash
+   code-insiders
+   ```
+
+This setup allows you to enjoy the latest features and improvements in VSCode while working within the Ubuntu Linux environment.
 
 ### Frontend
 
