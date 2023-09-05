@@ -22,6 +22,7 @@ Table of Contents
   * [Install NodeJs](#install-nodejs)
   * [Backend](#backend)
   * [Databases](#databases)
+* [Other Tools](#other-tools)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -221,6 +222,50 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
     nvm use node
 ```
 
+#### Install DotNet Core
+Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
+Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then 
+manual installation is the best bet.
+
+<https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository>
+
+1. Add Microsoft Repository
+
+2. Install package
+
+```bash
+    sudo apt install dotnet-sdk-7.0
+
+    sudo apt-get remove dotnet-sdk-7.0
+```
+
+#### Install docker
+
+<https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
+<https://docs.docker.com/engine/install/linux-postinstall/>
+
+#### Install Azure Cli
+
+<https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
+
+#### Install Kubernetes
+
+<https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
+<https://minikube.sigs.k8s.io/docs/start/>
+
+#### Install Helm
+
+<https://helm.sh/docs/intro/install/#from-the-binary-releases>
+
+#### Install Lens
+
+<https://docs.k8slens.dev/getting-started/install-lens/#debian>
+
+#### Install Azure ServiceBus Explorer
+
+On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
+<https://github.com/Carael/CrossBusExplorer>
+
 ### Backend
 
 Linux is renowned for its prowess in backend development. Some tools to consider:
@@ -237,6 +282,37 @@ Linux provides a variety of database options:
 * MongoDB: A NoSQL database for flexible data storage.
 * MySQL: Another popular open-source relational database.
 
+Other Tools
+-----------
+
+#### Video editing software
+
+```bash
+    sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+```
+
+<https://ubuntuhandbook.org/index.php/2020/04/install-kdenlive-20-04-ppa-in-ubuntu-20-04/>
+
+
+
+#### Gnome Tweaks
+<https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-22-04-lts-jammy-jellyfish-linux>
+
+```bash
+    gnome-tweaks
+```
+
+## Install Wireshark
+
+```bash
+    sudo add-apt-repository ppa:wireshark-dev/stable
+    sudo apt update
+
+    sudo apt install wireshark
+
+    # display version
+    apt show wireshark
+```
 File directories
 ---------------
 
@@ -301,74 +377,3 @@ This repository is licensed under the [GPL-3.0 license](LICENSE).
 * * *
 
 By sharing this journey, we hope to inspire fellow developers to explore Linux as a robust and efficient platform for their full stack development endeavors. If you have any questions, feedback, or stories to share about your own journey, feel free to contribute and connect with the developer community around this repository. Happy coding on Linux! 🐧🚀
-
-## Installing .Net
-
-<https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository>
-
-1. Add Microsoft Repository
-
-2. Install package
-
-```bash
-    sudo apt install dotnet-sdk-7.0
-
-    sudo apt-get remove dotnet-sdk-7.0
-```
-
-## Installing node.js
-
-<https://github.com/nvm-sh/nvm#troubleshooting-on-linux>
-
-## Video editing software
-
-```bash
-    sudo add-apt-repository ppa:kdenlive/kdenlive-stable
-```
-
-<https://ubuntuhandbook.org/index.php/2020/04/install-kdenlive-20-04-ppa-in-ubuntu-20-04/>
-
-## Install docker
-
-<https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
-<https://docs.docker.com/engine/install/linux-postinstall/>
-
-## Azure Cli
-
-<https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
-
-## Installing Kubernetes
-
-<https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
-<https://minikube.sigs.k8s.io/docs/start/>
-
-## Installing Helm
-
-<https://helm.sh/docs/intro/install/#from-the-binary-releases>
-
-## Installing Lens
-
-<https://docs.k8slens.dev/getting-started/install-lens/#debian>
-
-## ServiceBus Explorer
-
-On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
-<https://github.com/Carael/CrossBusExplorer>
-
-<https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-22-04-lts-jammy-jellyfish-linux>
-
-```bash
-    gnome-tweaks
-```
-
-## Installing Wireshark
-
-```bash
-    sudo add-apt-repository ppa:wireshark-dev/stable
-    sudo apt update
-
-    sudo apt install wireshark
-
-    # display version
-    apt show wireshark
-```
