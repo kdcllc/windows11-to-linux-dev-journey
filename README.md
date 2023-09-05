@@ -223,6 +223,7 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 ```
 
 #### Install DotNet Core
+
 Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
 Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then 
 manual installation is the best bet.
@@ -237,6 +238,23 @@ manual installation is the best bet.
     sudo apt install dotnet-sdk-7.0
 
     sudo apt-get remove dotnet-sdk-7.0
+```
+
+#### Install Python
+
+There are two location for `python`:
+
+1. global
+
+2. user install
+
+```bash
+  # install a different version of the python
+  sudo apt install python3.11 -y
+
+ # create a virtual env 
+ /usr/bin/python3.11 -m venv --without-pip .venv
+
 ```
 
 #### Install docker
