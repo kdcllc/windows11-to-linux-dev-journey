@@ -114,7 +114,11 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
 ```bash
     # Install Git
     sudo apt install git-all
-    
+```
+
+Add keys for github.com https://github.com/settings/keys
+
+```bash
     # Configure SSH for GitHub or Dev.Azure.com repositories
     # Generate an SSH key (replace "email@domain.com" with your email)
     ssh-keygen -t ed25519 -C "email@domain.com"
@@ -124,10 +128,27 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
     
     # Add your SSH key to the agent (replace "~/.ssh/id_ed25519.pub" with your actual key path)
     ssh-add ~/.ssh/id_ed25519
-    
-    # Now, add the SSH key to your GitHub or Dev.Azure.com account
-    # You can do this by copying the SSH key from "~/.ssh/id_ed25519.pub" and adding it to your account settings.
+
+    cat ~/.ssh/id_ed25519.pub
     # For GitHub: https://github.com/settings/keys
+
+```
+
+Add Keys to Azure DevOps  https://dev.azure.com/your-organization/_usersSettings/keys
+
+```bash
+    
+    ssh-keygen -C "email@domain.com"
+ 
+    # Start the SSH agent
+    eval "$(ssh-agent -s)"
+
+    # Add your SSH key to the agent (replace "~/.ssh/devops.pub" with your actual key path)
+    ssh-add ~/.ssh/devops
+
+    # Now, add the SSH key to your GitHub or Dev.Azure.com account
+    # You can do this by copying the SSH key from "~/.ssh/devops.pub" and adding it to your account settings.
+    cat ~/.ssh/devops.pub
     # For Dev.Azure.com: https://dev.azure.com/your-organization/_usersSettings/keys
 ```
 
@@ -223,8 +244,9 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 ```
 
 #### Install DotNet Core
+
 Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
-Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then 
+Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then
 manual installation is the best bet.
 
 <https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository>
@@ -293,9 +315,8 @@ Other Tools
 
 <https://ubuntuhandbook.org/index.php/2020/04/install-kdenlive-20-04-ppa-in-ubuntu-20-04/>
 
-
-
 #### Gnome Tweaks
+
 <https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-22-04-lts-jammy-jellyfish-linux>
 
 ```bash
@@ -313,6 +334,7 @@ Other Tools
     # display version
     apt show wireshark
 ```
+
 File directories
 ---------------
 
