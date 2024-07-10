@@ -1,6 +1,12 @@
 # From Windows 11 to Linux: A Full Stack Developer's Journey
 
-Welcome to the From Windows 11 to Linux: A Full Stack Developer's Journey repository! In this repository, we document the comprehensive journey of transitioning from Windows 11 to Linux as the primary development environment for a full stack developer. Whether you're new to Linux or an experienced user, this guide aims to provide a step-by-step account of the transition process, highlighting challenges, solutions, and best practices.
+![I stand with Israel](./images/IStandWithIsrael.png)
+
+Welcome to the From Windows 11 to Linux: 
+
+A Full Stack Developer's Journey repository! 
+
+In this repository, I document the comprehensive journey of transitioning from Windows 11 to Linux as the primary development environment for a full stack developer. Main reason for this migration is control over my privacy. Whether you're new to Linux or an experienced user, this guide aims to provide a step-by-step account of the transition process, highlighting challenges, solutions, and best practices.
 
 ## Hire me
 
@@ -18,7 +24,7 @@ Table of Contents
 * [Prerequisites](#prerequisites)
 * [Development Tools](#development-tools)
   * [Install `git` for version control](#install-git)
-  * [Install Vscode](#install-vscode)
+  * [Install VScode](#install-vscode)
   * [Install NodeJs](#install-nodejs)
   * [Backend](#backend)
   * [Databases](#databases)
@@ -29,7 +35,7 @@ Table of Contents
 Introduction
 ------------
 
-After more than two decades of working within the confines of Windows, I've made the personal decision to break free from the clutches of "Big Brother" technologies that relentlessly invade our privacy. In this pursuit, I'm transitioning to Ubuntu Linux, which, in stark contrast to Windows and iOS, shines as a symbol of privacy-conscious computing. While the Windows and iOS ecosystems often engage in extensive data collection without clear user consent, Ubuntu's open-source ethos and community-driven development champion transparency and privacy.
+After more than two decades of working within the confines of Windows, I've made the personal decision to break free from the clutches of ***"Big Brother"** technologies that relentlessly invade our privacy. In this pursuit, I'm transitioning to Ubuntu Linux, which, in stark contrast to Windows and iOS, shines as a symbol of privacy-conscious computing. While the Windows and iOS ecosystems often engage in extensive data collection without clear user consent, Ubuntu's open-source ethos and community-driven development champion transparency and privacy.
 
 Furthermore, in an era where other operating systems are rapidly integrating AI co-pilots, Ubuntu stands strong in its commitment to safeguarding user data. Unlike certain AI-driven features that raise privacy concerns in Windows and iOS, Ubuntu's community places a heavy emphasis on user consent, transparency, and data control. This solidifies Ubuntu's status as the ideal choice for those like me who cherish their privacy in this increasingly surveilled digital world.
 
@@ -302,27 +308,35 @@ source ~/.bashrc
 
 ```
 
-https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository
+[register the microsoft package repository](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository)
 
 1. Add Microsoft Repository
 
 2. Install package
 
 ```bash
-    sudo apt install dotnet-sdk-7.0
+    sudo apt install dotnet-sdk-8.0
 
-    sudo apt-get remove dotnet-sdk-7.0
+    sudo apt-get remove dotnet-sdk-8.0
 ```
 
 #### Install docker
 
-<https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
-<https://docs.docker.com/engine/install/linux-postinstall/>
+1. [install using the repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+2. [enable `docker run hello-world` without `sudo`](https://docs.docker.com/engine/install/linux-postinstall/)
 
 #### Install Azure Cli
 
-<https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command
 
+```bash
+    # install
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    # turn off telemetry
+    az config set core.collect_telemetry=no
+```
 #### Install Kubernetes
 
 <https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
