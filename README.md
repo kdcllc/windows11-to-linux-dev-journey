@@ -271,7 +271,7 @@ Automatically adding export to `~/.bashrc`
     nvm install node # "node" is an alias for the latest version
 
     # To install a specific version of node:
-    nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
+    nvm install 20 # or 16.3.0, 12.22.1, etc
 
     # And then in any new shell just use the installed version:
     nvm use node
@@ -281,9 +281,28 @@ Automatically adding export to `~/.bashrc`
 
 Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
 Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then
-manual installation is the best bet.
+manual installation is the best bet. 
 
-<https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository>
+Change the env variable `version` to the desired version.
+
+```bash
+
+export version=sdk-8.0.303-linux-x64
+
+curl -o- https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/${version}-binaries
+
+mkdir -p $HOME/dotnet && tar zxf dotnet-${version}.tar.gz -C $HOME/dotnet
+
+# export DOTNET_ROOT=$HOME/dotnet
+# export PATH=$PATH:$HOME/dotnet
+
+echo "export DOTNET_ROOT=\$HOME/dotnet" >> ~/.bashrc && echo "export PATH=\$PATH:\$HOME/dotnet" >> ~/.bashrc && echo "export DOTNET_CLI_TELEMETRY_OPTOUT=true" >> ~/.bashrc
+
+source ~/.bashrc
+
+```
+
+https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository
 
 1. Add Microsoft Repository
 
