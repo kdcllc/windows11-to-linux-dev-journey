@@ -105,7 +105,7 @@ As a diligent developer, I always strive to set up my development environment in
 
 Feel free to modify this Markdown text as needed for your specific use case or presentation.
 
-### Install git
+### Install and configuring `git`
 
 Git is an essential part of a developer's toolkit. Linux seamlessly integrates with Git, making version control efficient and effective.
 
@@ -116,7 +116,7 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
     sudo apt install git-all
 ```
 
-Add keys for github.com https://github.com/settings/keys
+Add keys for github.com <https://github.com/settings/keys>
 
 ```bash
     # Configure SSH for GitHub or Dev.Azure.com repositories
@@ -153,6 +153,25 @@ Add Keys to Azure DevOps  https://dev.azure.com/your-organization/_usersSettings
 ```
 
 Follow these steps to install Git, configure SSH access with an Ed25519 key, and add the key to your GitHub or Dev.Azure.com account for secure and convenient repository access.
+
+Setup default global user
+
+```bash
+    git config --global user.email "info@kingdavidconsulting.com"
+    git config --global user.name "kdcllc"
+
+    # The core.autocrlf=input setting is pretty crucial. It can break things you install over git (like rbenv).
+    git config --global core.autocrlf input
+
+```
+
+Set folder based user
+
+```bash
+    git config user.email "@kingdavidconsulting.com"
+    git config user.name "kdcllc"
+
+```
 
 ### Install VScode
 
@@ -195,9 +214,11 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 
 #### [Install `nvm`:](https://github.com/nvm-sh/nvm)
 
+Make sure that the latest curl command is executed: https://github.com/nvm-sh/nvm
+
 ```bash
     # Download and install nvm from the official GitHub repository
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
    
     # Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: 
     # (you may have to add to more than one of the above files)
@@ -210,6 +231,19 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
     # source ~/.zshrc    # If you are using zsh
     
     # Verify nvm installation by checking the version
+    nvm --version
+```
+
+Automatically adding export to `~/.bashrc`
+
+```bash
+
+    echo 'export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.bashrc
+
+    source ~/.bashrc
+
     nvm --version
 ```
 
