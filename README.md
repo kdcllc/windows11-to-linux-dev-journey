@@ -320,12 +320,26 @@ source ~/.bashrc
     sudo apt-get remove dotnet-sdk-8.0
 ```
 
-#### Install docker
+#### Install Docker
 
 1. [install using the repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 2. [enable `docker run hello-world` without `sudo`](https://docs.docker.com/engine/install/linux-postinstall/)
 
+### Install Docker Compose
+
+https://github.com/docker/compose?tab=readme-ov-file#linux
+
+```bash
+    export docker_v="v2.28.1"
+    sudo curl -L "https://github.com/docker/compose/releases/download/${docker_v}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+    # enable execute
+    sudo chmod +x /usr/local/bin/docker-compose
+
+    # verify
+    docker-compose --version
+```
 #### Install Azure Cli
 
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command
@@ -339,21 +353,21 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#o
 ```
 #### Install Kubernetes
 
-<https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
-<https://minikube.sigs.k8s.io/docs/start/>
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
+https://minikube.sigs.k8s.io/docs/start/
 
 #### Install Helm
 
-<https://helm.sh/docs/intro/install/#from-the-binary-releases>
+https://helm.sh/docs/intro/install/#from-the-binary-releases
 
 #### Install Lens
 
-<https://docs.k8slens.dev/getting-started/install-lens/#debian>
+https://docs.k8slens.dev/getting-started/install-lens/#debian
 
 #### Install Azure ServiceBus Explorer
 
-On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
-<https://github.com/Carael/CrossBusExplorer>
+On windows I used: [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+but I found this project [CrossBusExplorer](https://github.com/Carael/CrossBusExplorer)
 
 ### Backend
 
