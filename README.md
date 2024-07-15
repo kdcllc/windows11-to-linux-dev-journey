@@ -385,6 +385,13 @@ Linux provides a variety of database options:
 * MongoDB: A NoSQL database for flexible data storage.
 * MySQL: Another popular open-source relational database.
 
+#### Installing Microsoft SQL ODBC
+
+[scripts/odbc-install.sh](scripts/odbc-install.sh)
+
+- [System Requirements (Linux and macOS)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support)
+- [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)
+
 Other Tools
 -----------
 
