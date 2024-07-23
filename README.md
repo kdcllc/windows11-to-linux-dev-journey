@@ -351,6 +351,18 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#o
     # turn off telemetry
     az config set core.collect_telemetry=no
 ```
+
+#### Install Azure Developer cli
+
+https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux
+
+```bash
+    # install and upgrade
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+
+    # uninstall 
+    curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+```
 #### Install Kubernetes
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
