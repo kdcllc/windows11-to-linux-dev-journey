@@ -2,9 +2,9 @@
 
 ![I stand with Israel](./images/IStandWithIsrael.png)
 
-Welcome to the From Windows 11 to Linux: 
+Welcome to the From Windows 11 to Linux:
 
-A Full Stack Developer's Journey repository! 
+A Full Stack Developer's Journey repository!
 
 In this repository, I document the comprehensive journey of transitioning from Windows 11 to Linux as the primary development environment for a full stack developer. Main reason for this migration is control over my privacy. Whether you're new to Linux or an experienced user, this guide aims to provide a step-by-step account of the transition process, highlighting challenges, solutions, and best practices.
 
@@ -140,7 +140,7 @@ Add keys for github.com <https://github.com/settings/keys>
 
 ```
 
-Add Keys to Azure DevOps  https://dev.azure.com/your-organization/_usersSettings/keys
+Add Keys to Azure DevOps  <https://dev.azure.com/your-organization/_usersSettings/keys>
 
 ```bash
     
@@ -220,7 +220,7 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 
 #### [Install `nvm`:](https://github.com/nvm-sh/nvm)
 
-Make sure that the latest curl command is executed: https://github.com/nvm-sh/nvm
+Make sure that the latest curl command is executed: <https://github.com/nvm-sh/nvm>
 
 ```bash
     # Download and install nvm from the official GitHub repository
@@ -287,7 +287,7 @@ Automatically adding export to `~/.bashrc`
 
 Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
 Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then
-manual installation is the best bet. 
+manual installation is the best bet.
 
 Change the env variable `version` to the desired version.
 
@@ -328,7 +328,7 @@ source ~/.bashrc
 
 ### Install Docker Compose
 
-https://github.com/docker/compose?tab=readme-ov-file#linux
+<https://github.com/docker/compose?tab=readme-ov-file#linux>
 
 ```bash
     export docker_v="v2.28.1"
@@ -340,9 +340,10 @@ https://github.com/docker/compose?tab=readme-ov-file#linux
     # verify
     docker-compose --version
 ```
+
 #### Install Azure Cli
 
-https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command
+<https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
 
 ```bash
     # install
@@ -354,7 +355,7 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#o
 
 #### Install Azure Developer cli
 
-https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux
+<https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux>
 
 ```bash
     # install and upgrade
@@ -363,18 +364,19 @@ https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-az
     # uninstall 
     curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ```
+
 #### Install Kubernetes
 
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
-https://minikube.sigs.k8s.io/docs/start/
+<https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
+<https://minikube.sigs.k8s.io/docs/start/>
 
 #### Install Helm
 
-https://helm.sh/docs/intro/install/#from-the-binary-releases
+<https://helm.sh/docs/intro/install/#from-the-binary-releases>
 
 #### Install Lens
 
-https://docs.k8slens.dev/getting-started/install-lens/#debian
+<https://docs.k8slens.dev/getting-started/install-lens/#debian>
 
 #### Install Azure ServiceBus Explorer
 
@@ -401,8 +403,8 @@ Linux provides a variety of database options:
 
 [scripts/odbc-install.sh](scripts/odbc-install.sh)
 
-- [System Requirements (Linux and macOS)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support)
-- [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)
+* [System Requirements (Linux and macOS)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support)
+* [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)
 
 Other Tools
 -----------
