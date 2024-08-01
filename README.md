@@ -127,24 +127,24 @@ Add keys for github.com <https://github.com/settings/keys>
 ```bash
     # Configure SSH for GitHub or Dev.Azure.com repositories
     # Generate an SSH key (replace "email@domain.com" with your email)
-    ssh-keygen -t ed25519 -C "email@domain.com"
+    ssh-keygen -t ed25519 -C "email@domain.com" -f ~/.ssh/github
     
     # Start the SSH agent
     eval "$(ssh-agent -s)"
     
-    # Add your SSH key to the agent (replace "~/.ssh/id_ed25519.pub" with your actual key path)
-    ssh-add ~/.ssh/id_ed25519
+    # Add your SSH key to the agent
+    ssh-add ~/.ssh/github
 
-    cat ~/.ssh/id_ed25519.pub
+    cat ~/.ssh/github.pub
     # For GitHub: https://github.com/settings/keys
 
 ```
 
-Add Keys to Azure DevOps  <https://dev.azure.com/your-organization/_usersSettings/keys>
+Add Keys to Azure DevOps  https://dev.azure.com/your-organization/_usersSettings/keys
 
 ```bash
     
-    ssh-keygen -C "email@domain.com"
+    ssh-keygen ssh-keygen -t rsa -b 4096 -C "email@domain.com" -f ~/.ssh/devops
  
     # Start the SSH agent
     eval "$(ssh-agent -s)"
