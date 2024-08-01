@@ -185,34 +185,51 @@ Once you've made the decision to transition away from the Windows ecosystem, sel
 
 #### Installing VSCode
 
+There are two options to install VSCode:
+1. using snap store
+2. using `apt` command
+
+##### Snap Install
 1. To install VSCode, you can use the following command:
 
-   ```bash
-   sudo snap install code --classic
-   ```
+```bash
+    sudo snap install code --classic
+
+    # or 
+    sudo snap install code-insiders --classic
+```
 
    This command installs the Visual Studio Code (VSCode) using Snap, a universal package manager in Ubuntu.
 
 2. After the installation is complete, you can launch VSCode by searching for it in the application menu or using the following command:
 
-   ```bash
+```bash
    code
+    
+    # or 
+    code-insiders
+```
+##### Installing VSCode with `apt`
 
-#### Installing VSCode Insiders Edition- staying on the Cutting Edge
+https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions
 
-If you prefer to stay at the forefront of software development and want to use the Insider version of VSCode, you can do so on Ubuntu Linux. I've been using the VSCode Insider version and rarely encountered issues after daily updates. To install the Insider version, you can follow these steps:
+add repo feed
 
-1. First, install the Insider version of VSCode using Snap:
+```bash
+    sudo apt-get install wget gpg
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+    echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+    rm -f packages.microsoft.gpg
+```
 
-   ```bash
-   sudo snap install code-insiders --classic
-   ```
+Install the app
 
-2. Once the installation is complete, launch the Insider version by searching for it in the application menu or using the command:
-
-   ```bash
-   code-insiders
-   ```
+```bash
+    sudo apt install apt-transport-https
+    sudo apt update
+    sudo apt install code # or code-insiders
+```
 
 This setup allows you to enjoy the latest features and improvements in VSCode while working within the Ubuntu Linux environment.
 
