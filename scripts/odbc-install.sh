@@ -1,17 +1,20 @@
 # make odbc-install.sh executable
 # chmod +x odbc-install.sh
 # sudo ./odbc-install.sh
-# https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server
+# https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&tabs=ubuntu18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline#18
 # https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support
-if ! [[ "18.04 20.04 22.04 23.04" == *"$(lsb_release -rs)"* ]];
-then
-    echo "Ubuntu $(lsb_release -rs) is not currently supported.";
-    exit;
+
+SUPPORTED_VERSIONS="18.04|20.04|22.04|23.04|24.04"
+UBUNTU_VERSION=$(lsb_release -rs)
+
+if ! echo "$UBUNTU_VERSION" | grep -qE "^($SUPPORTED_VERSIONS)$"; then
+    echo "Ubuntu $UBUNTU_VERSION is not currently supported."
+    exit 1
 fi
 
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 
-curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+curl https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
 
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
