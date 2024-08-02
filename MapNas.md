@@ -4,7 +4,9 @@
 <https://linuxhint.com/mount-smb-shares-on-ubuntu/>
 
 ```
-    
+    sudo apt update
+    sudo apt install cifs-utils
+
     sudo mkdir /media/share
     sudo nano /root/.nascreds
 

@@ -1,6 +1,12 @@
 # From Windows 11 to Linux: A Full Stack Developer's Journey
 
-Welcome to the From Windows 11 to Linux: A Full Stack Developer's Journey repository! In this repository, we document the comprehensive journey of transitioning from Windows 11 to Linux as the primary development environment for a full stack developer. Whether you're new to Linux or an experienced user, this guide aims to provide a step-by-step account of the transition process, highlighting challenges, solutions, and best practices.
+![I stand with Israel](./images/IStandWithIsrael.png)
+
+Welcome to the From Windows 11 to Linux:
+
+A Full Stack Developer's Journey repository!
+
+In this repository, I document the comprehensive journey of transitioning from Windows 11 to Linux as the primary development environment for a full stack developer. Main reason for this migration is control over my privacy. Whether you're new to Linux or an experienced user, this guide aims to provide a step-by-step account of the transition process, highlighting challenges, solutions, and best practices.
 
 ## Hire me
 
@@ -18,7 +24,7 @@ Table of Contents
 * [Prerequisites](#prerequisites)
 * [Development Tools](#development-tools)
   * [Install `git` for version control](#install-git)
-  * [Install Vscode](#install-vscode)
+  * [Install VScode](#install-vscode)
   * [Install NodeJs](#install-nodejs)
   * [Backend](#backend)
   * [Databases](#databases)
@@ -29,7 +35,7 @@ Table of Contents
 Introduction
 ------------
 
-After more than two decades of working within the confines of Windows, I've made the personal decision to break free from the clutches of "Big Brother" technologies that relentlessly invade our privacy. In this pursuit, I'm transitioning to Ubuntu Linux, which, in stark contrast to Windows and iOS, shines as a symbol of privacy-conscious computing. While the Windows and iOS ecosystems often engage in extensive data collection without clear user consent, Ubuntu's open-source ethos and community-driven development champion transparency and privacy.
+After more than two decades of working within the confines of Windows, I've made the personal decision to break free from the clutches of ***"Big Brother"** technologies that relentlessly invade our privacy. In this pursuit, I'm transitioning to Ubuntu Linux, which, in stark contrast to Windows and iOS, shines as a symbol of privacy-conscious computing. While the Windows and iOS ecosystems often engage in extensive data collection without clear user consent, Ubuntu's open-source ethos and community-driven development champion transparency and privacy.
 
 Furthermore, in an era where other operating systems are rapidly integrating AI co-pilots, Ubuntu stands strong in its commitment to safeguarding user data. Unlike certain AI-driven features that raise privacy concerns in Windows and iOS, Ubuntu's community places a heavy emphasis on user consent, transparency, and data control. This solidifies Ubuntu's status as the ideal choice for those like me who cherish their privacy in this increasingly surveilled digital world.
 
@@ -105,7 +111,7 @@ As a diligent developer, I always strive to set up my development environment in
 
 Feel free to modify this Markdown text as needed for your specific use case or presentation.
 
-### Install git
+### Install and configuring `git`
 
 Git is an essential part of a developer's toolkit. Linux seamlessly integrates with Git, making version control efficient and effective.
 
@@ -114,24 +120,64 @@ Git is an essential part of a developer's toolkit. Linux seamlessly integrates w
 ```bash
     # Install Git
     sudo apt install git-all
-    
+```
+
+Add keys for github.com <https://github.com/settings/keys>
+
+```bash
     # Configure SSH for GitHub or Dev.Azure.com repositories
     # Generate an SSH key (replace "email@domain.com" with your email)
-    ssh-keygen -t ed25519 -C "email@domain.com"
+    ssh-keygen -t ed25519 -C "email@domain.com" -f ~/.ssh/github
     
     # Start the SSH agent
     eval "$(ssh-agent -s)"
     
-    # Add your SSH key to the agent (replace "~/.ssh/id_ed25519.pub" with your actual key path)
-    ssh-add ~/.ssh/id_ed25519
-    
-    # Now, add the SSH key to your GitHub or Dev.Azure.com account
-    # You can do this by copying the SSH key from "~/.ssh/id_ed25519.pub" and adding it to your account settings.
+    # Add your SSH key to the agent
+    ssh-add ~/.ssh/github
+
+    cat ~/.ssh/github.pub
     # For GitHub: https://github.com/settings/keys
+
+```
+
+Add Keys to Azure DevOps  https://dev.azure.com/your-organization/_usersSettings/keys
+
+```bash
+    
+    ssh-keygen ssh-keygen -t rsa -b 4096 -C "email@domain.com" -f ~/.ssh/devops
+ 
+    # Start the SSH agent
+    eval "$(ssh-agent -s)"
+
+    # Add your SSH key to the agent (replace "~/.ssh/devops.pub" with your actual key path)
+    ssh-add ~/.ssh/devops
+
+    # Now, add the SSH key to your GitHub or Dev.Azure.com account
+    # You can do this by copying the SSH key from "~/.ssh/devops.pub" and adding it to your account settings.
+    cat ~/.ssh/devops.pub
     # For Dev.Azure.com: https://dev.azure.com/your-organization/_usersSettings/keys
 ```
 
 Follow these steps to install Git, configure SSH access with an Ed25519 key, and add the key to your GitHub or Dev.Azure.com account for secure and convenient repository access.
+
+Setup default global user
+
+```bash
+    git config --global user.email "info@kingdavidconsulting.com"
+    git config --global user.name "kdcllc"
+
+    # The core.autocrlf=input setting is pretty crucial. It can break things you install over git (like rbenv).
+    git config --global core.autocrlf input
+
+```
+
+Set folder based user
+
+```bash
+    git config user.email "@kingdavidconsulting.com"
+    git config user.name "kdcllc"
+
+```
 
 ### Install VScode
 
@@ -139,34 +185,51 @@ Once you've made the decision to transition away from the Windows ecosystem, sel
 
 #### Installing VSCode
 
+There are two options to install VSCode:
+1. using snap store
+2. using `apt` command
+
+##### Snap Install
 1. To install VSCode, you can use the following command:
 
-   ```bash
-   sudo snap install code --classic
-   ```
+```bash
+    sudo snap install code --classic
+
+    # or 
+    sudo snap install code-insiders --classic
+```
 
    This command installs the Visual Studio Code (VSCode) using Snap, a universal package manager in Ubuntu.
 
 2. After the installation is complete, you can launch VSCode by searching for it in the application menu or using the following command:
 
-   ```bash
+```bash
    code
+    
+    # or 
+    code-insiders
+```
+##### Installing VSCode with `apt`
 
-#### Installing VSCode Insiders Edition- staying on the Cutting Edge
+https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions
 
-If you prefer to stay at the forefront of software development and want to use the Insider version of VSCode, you can do so on Ubuntu Linux. I've been using the VSCode Insider version and rarely encountered issues after daily updates. To install the Insider version, you can follow these steps:
+add repo feed
 
-1. First, install the Insider version of VSCode using Snap:
+```bash
+    sudo apt-get install wget gpg
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+    echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+    rm -f packages.microsoft.gpg
+```
 
-   ```bash
-   sudo snap install code-insiders --classic
-   ```
+Install the app
 
-2. Once the installation is complete, launch the Insider version by searching for it in the application menu or using the command:
-
-   ```bash
-   code-insiders
-   ```
+```bash
+    sudo apt install apt-transport-https
+    sudo apt update
+    sudo apt install code # or code-insiders
+```
 
 This setup allows you to enjoy the latest features and improvements in VSCode while working within the Ubuntu Linux environment.
 
@@ -174,9 +237,11 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
 
 #### [Install `nvm`:](https://github.com/nvm-sh/nvm)
 
+Make sure that the latest curl command is executed: <https://github.com/nvm-sh/nvm>
+
 ```bash
     # Download and install nvm from the official GitHub repository
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
    
     # Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: 
     # (you may have to add to more than one of the above files)
@@ -189,6 +254,19 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
     # source ~/.zshrc    # If you are using zsh
     
     # Verify nvm installation by checking the version
+    nvm --version
+```
+
+Automatically adding export to `~/.bashrc`
+
+```bash
+
+    echo 'export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> ~/.bashrc
+
+    source ~/.bashrc
+
     nvm --version
 ```
 
@@ -216,37 +294,110 @@ This setup allows you to enjoy the latest features and improvements in VSCode wh
     nvm install node # "node" is an alias for the latest version
 
     # To install a specific version of node:
-    nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
+    nvm install 20 # or 16.3.0, 12.22.1, etc
 
     # And then in any new shell just use the installed version:
     nvm use node
 ```
 
 #### Install DotNet Core
+
 Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
-Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then 
+Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then
 manual installation is the best bet.
 
-<https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository>
+Change the env variable `version` to the desired version.
+
+Manual steps or use script [./dotnet-install.sh 8.0.303](./scripts/dotnet-install.sh)
+
+```bash
+
+    export DOTNET_VERSION=8.0.303
+    
+    wget https://dotnetcli.azureedge.net/dotnet/Sdk/${DOTNET_VERSION}/dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
+    
+    mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz -C $HOME/dotnet
+    
+    # export DOTNET_ROOT=$HOME/dotnet
+    # export PATH=$PATH:$HOME/dotnet
+    
+    echo "export DOTNET_ROOT=\$HOME/dotnet" >> ~/.bashrc && echo "export PATH=\$PATH:\$HOME/dotnet" >> ~/.bashrc && echo "export DOTNET_CLI_TELEMETRY_OPTOUT=true" >> ~/.bashrc
+    
+    source ~/.bashrc
+    
+    rm dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
+
+    dotnet --list-sdks
+
+    dotnet --version
+
+```
+
+[register the microsoft package repository](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository)
 
 1. Add Microsoft Repository
 
 2. Install package
 
 ```bash
-    sudo apt install dotnet-sdk-7.0
+    sudo apt install dotnet-sdk-8.0
 
-    sudo apt-get remove dotnet-sdk-7.0
+    sudo apt-get remove dotnet-sdk-8.0
 ```
 
-#### Install docker
+#### Install Docker
 
-<https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>
-<https://docs.docker.com/engine/install/linux-postinstall/>
+1. [install using the repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+2. [enable `docker run hello-world` without `sudo`](https://docs.docker.com/engine/install/linux-postinstall/)
+
+### Install Docker Compose
+
+[Install Docker Compose](https://github.com/docker/compose)
+
+```bash
+    export docker_v="v2.29.1"
+    sudo curl -L "https://github.com/docker/compose/releases/download/${docker_v}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+    # enable execute
+    sudo chmod +x /usr/local/bin/docker-compose
+
+    # verify
+    docker-compose --version
+```
 
 #### Install Azure Cli
 
+[How to solve The following signatures couldn't be verified because the public key is not available: NO_PUBKEY EB3E94ADBE1229CF](https://superuser.com/questions/1820219/how-to-solve-the-following-signatures-couldnt-be-verified-because-the-public-ke)
+
+```bash
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+```
+
 <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
+
+```bash
+    # install
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    # turn off telemetry
+    az config set core.collect_telemetry=no
+```
+
+#### Install Azure Developer cli
+
+<https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux>
+
+```bash
+    # install and upgrade
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+
+    # update
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+
+    # uninstall 
+    curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+```
 
 #### Install Kubernetes
 
@@ -263,8 +414,8 @@ manual installation is the best bet.
 
 #### Install Azure ServiceBus Explorer
 
-On windows I used: <https://github.com/paolosalvatori/ServiceBusExplorer>
-<https://github.com/Carael/CrossBusExplorer>
+On windows I used: [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+but I found this project [CrossBusExplorer](https://github.com/Carael/CrossBusExplorer)
 
 ### Backend
 
@@ -282,6 +433,13 @@ Linux provides a variety of database options:
 * MongoDB: A NoSQL database for flexible data storage.
 * MySQL: Another popular open-source relational database.
 
+#### Installing Microsoft SQL ODBC
+
+[scripts/odbc-install.sh](scripts/odbc-install.sh)
+
+* [System Requirements (Linux and macOS)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support)
+* [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)
+
 Other Tools
 -----------
 
@@ -293,9 +451,8 @@ Other Tools
 
 <https://ubuntuhandbook.org/index.php/2020/04/install-kdenlive-20-04-ppa-in-ubuntu-20-04/>
 
-
-
 #### Gnome Tweaks
+
 <https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-22-04-lts-jammy-jellyfish-linux>
 
 ```bash
@@ -313,6 +470,7 @@ Other Tools
     # display version
     apt show wireshark
 ```
+
 File directories
 ---------------
 
