@@ -353,10 +353,10 @@ Manual steps or use script [./dotnet-install.sh 8.0.303](./scripts/dotnet-instal
 
 ### Install Docker Compose
 
-<https://github.com/docker/compose?tab=readme-ov-file#linux>
+[Install Docker Compose](https://github.com/docker/compose)
 
 ```bash
-    export docker_v="v2.28.1"
+    export docker_v="v2.29.1"
     sudo curl -L "https://github.com/docker/compose/releases/download/${docker_v}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
     # enable execute
@@ -367,6 +367,12 @@ Manual steps or use script [./dotnet-install.sh 8.0.303](./scripts/dotnet-instal
 ```
 
 #### Install Azure Cli
+
+[How to solve The following signatures couldn't be verified because the public key is not available: NO_PUBKEY EB3E94ADBE1229CF](https://superuser.com/questions/1820219/how-to-solve-the-following-signatures-couldnt-be-verified-because-the-public-ke)
+
+```bash
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+```
 
 <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command>
 
@@ -384,6 +390,9 @@ Manual steps or use script [./dotnet-install.sh 8.0.303](./scripts/dotnet-instal
 
 ```bash
     # install and upgrade
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+
+    # update
     curl -fsSL https://aka.ms/install-azd.sh | bash
 
     # uninstall 
