@@ -308,20 +308,28 @@ manual installation is the best bet.
 
 Change the env variable `version` to the desired version.
 
+Manual steps or use script [./dotnet-install.sh 8.0.303](./scripts/dotnet-install.sh)
+
 ```bash
 
-export version=sdk-8.0.303-linux-x64
+    export DOTNET_VERSION=8.0.303
+    
+    wget https://dotnetcli.azureedge.net/dotnet/Sdk/${DOTNET_VERSION}/dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
+    
+    mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz -C $HOME/dotnet
+    
+    # export DOTNET_ROOT=$HOME/dotnet
+    # export PATH=$PATH:$HOME/dotnet
+    
+    echo "export DOTNET_ROOT=\$HOME/dotnet" >> ~/.bashrc && echo "export PATH=\$PATH:\$HOME/dotnet" >> ~/.bashrc && echo "export DOTNET_CLI_TELEMETRY_OPTOUT=true" >> ~/.bashrc
+    
+    source ~/.bashrc
+    
+    rm dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
 
-curl -o- https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/${version}-binaries
+    dotnet --list-sdks
 
-mkdir -p $HOME/dotnet && tar zxf dotnet-${version}.tar.gz -C $HOME/dotnet
-
-# export DOTNET_ROOT=$HOME/dotnet
-# export PATH=$PATH:$HOME/dotnet
-
-echo "export DOTNET_ROOT=\$HOME/dotnet" >> ~/.bashrc && echo "export PATH=\$PATH:\$HOME/dotnet" >> ~/.bashrc && echo "export DOTNET_CLI_TELEMETRY_OPTOUT=true" >> ~/.bashrc
-
-source ~/.bashrc
+    dotnet --version
 
 ```
 
