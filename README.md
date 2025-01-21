@@ -16,7 +16,7 @@ Please send [email](mailto:kingdavidconsulting@gmail.com) if you consider to **h
 
 ## Give a Star! :star:
 
-It supports the following authentication libraries
+If you like or are using this project to learn or start your solution, please give it a star. Thanks!
 
 Table of Contents
 -----------------

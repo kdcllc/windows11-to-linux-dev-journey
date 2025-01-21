@@ -183,3 +183,30 @@ Automatically adding export to `~/.bashrc`
 For more details on setting up .NET Core development, refer to the [DotNetCore development on Ubuntu](./dotnetcore.md) guide.
 
 For instructions on adding NAS SMB mounts, refer to the [Add NAS SMB mount](./MapNas.md) guide.
+
+## Bash Scripts
+
+Here are some useful bash scripts for setting up your development environment:
+
+* [Install Docker Compose](../scripts/docker-compose-install.sh): Script to install Docker Compose.
+* [Install .NET SDK](../scripts/dotnet-install.sh): Script to install a specific version of the .NET SDK.
+* [Install ODBC Driver](../scripts/odbc-install.sh): Script to install the Microsoft ODBC Driver for SQL Server.
+
+## Install Scripts
+
+You can use the following commands to install the scripts directly from the repository:
+
+* Install Docker Compose:
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/docker-compose-install.sh | sh
+  ```
+
+* Install .NET SDK:
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/dotnet-install.sh | sh
+  ```
+
+* Install ODBC Driver:
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/odbc-install.sh | sh
+  ```
