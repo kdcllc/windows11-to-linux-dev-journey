@@ -178,6 +178,111 @@ Automatically adding export to `~/.bashrc`
     rm -
 ```
 
+## Install DotNet Core
+
+Initially, I attempted to install .Net Core from Microsoft package repository but I ran into issue with it.
+Since, the desired outcome is flexibility and ability to run any version of the .Net Core I need at any time; then
+manual installation is the best bet.
+
+Change the env variable `version` to the desired version.
+Manual steps or use script [./dotnet-install.sh 8.0.303](../scripts/dotnet-install.sh)
+
+```bash
+    export DOTNET_VERSION=8.0.303
+    
+    wget https://dotnetcli.azureedge.net/dotnet/Sdk/${DOTNET_VERSION}/dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
+    
+    mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz -C $HOME/dotnet
+    
+    # export DOTNET_ROOT=$HOME/dotnet
+    # export PATH=$PATH:$HOME/dotnet
+    
+    echo "export DOTNET_ROOT=\$HOME/dotnet" >> ~/.bashrc && echo "export PATH=\$PATH:\$HOME/dotnet" >> ~/.bashrc && echo "export DOTNET_CLI_TELEMETRY_OPTOUT=true" >> ~/.bashrc
+    
+    source ~/.bashrc
+    
+    rm dotnet-sdk-${DOTNET_VERSION}-linux-x64.tar.gz
+    dotnet --list-sdks
+    dotnet --version
+```
+
+[register the microsoft package repository](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#register-the-microsoft-package-repository)
+
+1. Add Microsoft Repository
+
+2. Install package
+
+```bash
+    sudo apt install dotnet-sdk-8.0
+
+    sudo apt-get remove dotnet-sdk-8.0
+```
+
+## Install Docker
+
+1. [install using the repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+2. [enable `docker run hello-world` without `sudo`](https://docs.docker.com/engine/install/linux-postinstall/)
+
+### Install Docker Compose
+
+[Install Docker Compose](https://github.com/docker/compose)
+
+```bash
+    export docker_v="v2.29.1"
+    sudo curl -L "https://github.com/docker/compose/releases/download/${docker_v}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    # enable execute
+    sudo chmod +x /usr/local/bin/docker-compose
+
+    # verify
+    docker-compose --version
+```
+
+## Install Azure Cli
+
+[How to solve The following signatures couldn't be verified because the public key is not available: NO_PUBKEY EB3E94ADBE1229CF](https://superuser.com/questions/1820219/how-to-solve-the-following-signatures-couldnt-be-verified-because-the-public-ke)
+
+```bash
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+```
+
+[install-with-one-command](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-1-install-with-one-command)
+
+```bash
+    # install
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    # turn off telemetry
+    az config set core.collect_telemetry=no
+```
+
+## Install Azure Developer cli
+
+<https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux>
+
+```bash
+    # install and upgrade
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+    # update
+    curl -fsSL https://aka.ms/install-azd.sh | bash
+    # uninstall 
+    curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+```
+
+### Install Kubernetes
+
+<https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux>
+
+## Install Azure ServiceBus Explorer
+
+On windows I used: [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+but I found this project [CrossBusExplorer](https://github.com/Carael/CrossBusExplorer)
+
+## Installing Microsoft SQL ODBC
+
+[scripts/odbc-install.sh](../scripts/odbc-install.sh)
+
+* [System Requirements (Linux and macOS)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/system-requirements?view=sql-server-ver16#operating-system-support)
+* [Install the Microsoft ODBC driver for SQL Server (Linux)](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)
+
 ## Additional Tools
 
 For more details on setting up .NET Core development, refer to the [DotNetCore development on Ubuntu](./dotnetcore.md) guide.
@@ -197,16 +302,19 @@ Here are some useful bash scripts for setting up your development environment:
 You can use the following commands to install the scripts directly from the repository:
 
 * Install Docker Compose:
+
   ```bash
   curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/docker-compose-install.sh | sh
   ```
 
 * Install .NET SDK:
+
   ```bash
   curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/dotnet-install.sh | sh
   ```
 
 * Install ODBC Driver:
+
   ```bash
   curl -fsSL https://raw.githubusercontent.com/kdcllc/windows11-to-linux-dev-journey/refs/heads/master/scripts/odbc-install.sh | sh
   ```
